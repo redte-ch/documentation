@@ -1,0 +1,12 @@
+---
+import { getCollection } from "astro:content";
+const playbook = await getCollection("playbook");
+---
+
+{
+  playbook.map((entry) => (
+    <ul>
+      <li><a href={`/playbook/${entry.slug}`}>{entry.data.title}</a></li>
+    </ul>
+  ))
+}
